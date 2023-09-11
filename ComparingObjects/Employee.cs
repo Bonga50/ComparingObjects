@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 
 namespace ComparingObjects
 {
-    internal class Employee
+    internal class Employee :IComparable<Employee>              
     {
         public string? FirstName { get; set; }
         public string? LastName { get; set; }
@@ -22,6 +22,16 @@ namespace ComparingObjects
         public override string? ToString()
         {
             return $"{FirstName} {LastName} : {salary}";
+        }
+
+        public int CompareTo(Employee? other)
+        {
+            int result = this.LastName.CompareTo(other.LastName);
+            if (result==0)
+            {
+                result = this.FirstName.CompareTo(other.FirstName);
+            }
+            return result;
         }
     }
 }

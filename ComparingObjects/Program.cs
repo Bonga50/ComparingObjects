@@ -21,7 +21,7 @@
             Console.WriteLine("Unsorted list");
             DispalayElements(employees);
             Console.WriteLine(  "Sorted list");
-            Bubble(employees);
+            BubbleSort(employees);
             DispalayElements(employees);
             Console.ReadLine(  );
         }
@@ -57,6 +57,26 @@
                     }
 
                     
+                }
+            }
+        }
+
+        public static void BubbleSort(List<Employee> employees)
+        {
+            for (int i = 0; i < employees.Count - 1; i++)
+            {
+                for (int j = (i + 1); j < employees.Count; j++)
+                {
+
+                    if (employees[j].CompareTo(employees[i]) < 0)
+                    {
+                        Employee temp = employees[j];
+                        employees[j] = employees[i];
+                        employees[i] = temp;
+                    }
+                   
+
+
                 }
             }
         }
